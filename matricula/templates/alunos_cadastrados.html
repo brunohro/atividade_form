@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos Cadastrados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-align: center;
+        }
+        .aluno-container {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .aluno-container p {
+            margin: 5px 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+        .aluno-container p:first-child {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #007bff;
+        }
+        .back-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Alunos Cadastrados</h1>
+
+    {% for aluno in cadastrados %}
+        <div class="aluno-container">
+            <p>{{ aluno.nome }}</p>
+            <p>{{ aluno.matricula }}</p>
+            <p>{{ aluno.email }}</p>
+        </div>
+    {% endfor %}
+    <a href="{% url 'index' %}" class="back-button">Voltar</a>
+</body>
+</html>
